@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Shampoo de Cebolla Kaba",
+    "price": 28000,
+    "imageUrl": "https://placehold.co/400x400/F8BBD0/333?text=Kaba",
+    "category": "Cabello",
+    "tag": "Popular"
+  },
+  {
+    "id": 2,
+    "name": "Base de Maquillaje Fit Me",
+    "price": 45000,
+    "imageUrl": "https://placehold.co/400x400/D1C4E9/333?text=Fit+Me",
+    "category": "Maquillaje"
+  },
+  {
+    "id": 3,
+    "name": "Esmalte de Uñas Masglo",
+    "price": 7000,
+    "imageUrl": "https://placehold.co/400x400/C8E6C9/333?text=Masglo",
+    "category": "Manicura/Pedicura",
+    "tag": "Nuevo"
+  },
+  {
+    "id": 4,
+    "name": "Tratamiento Capilar Milagros",
+    "price": 38500,
+    "imageUrl": "https://placehold.co/400x400/F8BBD0/333?text=Milagros",
+    "category": "Cabello"
+  },
+  {
+    "id": 5,
+    "name": "Paleta de Sombras Beauty Creations",
+    "price": 65000,
+    "imageUrl": "https://placehold.co/400x400/D1C4E9/333?text=Beauty",
+    "category": "Maquillaje",
+    "tag": "Popular"
+  },
+  {
+    "id": 6,
+    "name": "Removedor de Esmalte L'mar x250ml",
+    "price": 14000,
+    "imageUrl": "https://placehold.co/400x400/C8E6C9/333?text=L'mar",
+    "category": "Manicura/Pedicura"
+  },
+  {
+    "id": 7,
+    "name": "Polvo Suelto Raquel",
+    "price": 22000,
+    "imageUrl": "https://placehold.co/400x400/D1C4E9/333?text=Raquel",
+    "category": "Maquillaje"
+  },
+  {
+    "id": 8,
+    "name": "Termoprotector Kaba",
+    "price": 32000,
+    "imageUrl": "https://placehold.co/400x400/F8BBD0/333?text=Kaba+T",
+    "category": "Cabello",
+    "tag": "Nuevo"
+  }
+]
