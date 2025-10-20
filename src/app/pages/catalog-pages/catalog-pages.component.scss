@@ -1,0 +1,40 @@
+.app-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+mat-sidenav {
+  width: 400px;
+  border-left: 1px solid var(--color-outline) !important;
+}
+
+@media (max-width: 599px) {
+  mat-sidenav {
+    width: 90vw;
+    max-width: 400px;
+  }
+}
+
+.controls-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding: 24px;
+  background-color: white;
+  border-bottom: 1px solid var(--color-outline);
+}
+
+.search-bar {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.mat-mdc-chip-set {
+  flex-shrink: 0;
+}
+
+.content-grid {
+  padding: 24px;
+}
+

@@ -1,0 +1,55 @@
+<mat-sidenav-container class="app-container" autosize>
+
+  <!-- Panel lateral del Carrito -->
+  <mat-sidenav #sidenav [mode]="(isMobile$ | async) ? 'over' : 'side'" [opened]="!(isMobile$ | async)" position="end">
+    <app-cart-drawer
+      [cartItems]="(cartService.cartItems$ | async)!"
+      [total]="(cartService.total$ | async)"
+      (close)="sidenav.close()"
+      (updateQty)="onUpdateQuantity($event)"
+      (removeItem)="onRemoveItem($event)"
+      (sendQuote)="onSendQuote()">
+    </app-cart-drawer>
+  </mat-sidenav>
+
+  <!-- Contenido Principal de la Página -->
+  <mat-sidenav-content>
+    <app-header [isMobile]="(isMobile$ | async)!" (cartToggle)="sidenav.toggle()"></app-header>
+
+    <!-- Controles de Filtro y Búsqueda -->
+    <div class="controls-container">
+      <mat-form-field appearance="outline" class="search-bar">
+        <mat-label>Buscar producto...</mat-label>
+        <input matInput #searchInput (keyup)="onSearchChange(searchInput.value)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <mat-chip-set aria-label="Filtrar por categoría">
+        <mat-chip *ngFor="let category of categories()"
+          [class.selected]="category === selectedCategory()"
+          (click)="onCategoryChange(category)">
+          {{ category }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+
+    <!-- Cuadrícula de Productos -->
+    <main class="content-grid">
+      <div *ngIf="filteredProducts().length > 0; else noProducts">
+        <mat-grid-list [cols]="(gridCols$ | async)!" rowHeight="1:1.5" gutterSize="16px">
+          <mat-grid-tile *ngFor="let product of filteredProducts(); trackBy: trackById">
+            <app-product-card [product]="product" (addToCart)="onAddToCart(product)"></app-product-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <ng-template #noProducts>
+        <app-empty-state
+          title="No se encontraron productos"
+          message="Intenta con otra búsqueda o filtro."
+          icon="search_off">
+        </app-empty-state>
+      </ng-template>
+    </main>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

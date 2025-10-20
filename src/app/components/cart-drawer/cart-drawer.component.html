@@ -1,0 +1,62 @@
+<div class="cart-container">
+  <header class="cart-header">
+    <h2 class="mat-headline-5">Cotización</h2>
+    <button mat-icon-button (click)="close.emit()" aria-label="Cerrar carrito">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <mat-divider></mat-divider>
+
+  <div class="cart-content">
+
+    @if (cartItems.length > 0) {
+      <mat-list role="list">
+
+        @for (item of cartItems; track item.productId) {
+          <mat-list-item role="listitem">
+            <img matListItemAvatar [src]="item.imageUrl" [alt]="item.name">
+            <div matListItemTitle class="item-name">{{ item.name }}</div>
+            <div matListItemLine class="item-details">
+                {{ item.price | currency:'COP':'symbol':'1.0-0' }}
+                <div class="quantity-control">
+                  <button mat-icon-button (click)="updateQty.emit({productId: item.productId, quantity: item.quantity - 1})" [disabled]="item.quantity === 1" aria-label="Disminuir cantidad">
+                      <mat-icon>remove</mat-icon>
+                  </button>
+                  <span>{{ item.quantity }}</span>
+                  <button mat-icon-button (click)="updateQty.emit({productId: item.productId, quantity: item.quantity + 1})" aria-label="Aumentar cantidad">
+                      <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+            </div>
+            <div matListItemMeta class="item-subtotal">{{ item.subtotal | currency:'COP':'symbol':'1.0-0' }}</div>
+            <button mat-icon-button (click)="removeItem.emit(item.productId)" class="remove-button" aria-label="Eliminar item">
+                <mat-icon>delete_outline</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        }
+
+      </mat-list>
+    } @else {
+      <app-empty-state
+        title="Tu carrito está vacío"
+        message="¡Añade productos para empezar a cotizar!"
+        icon="production_quantity_limits">
+      </app-empty-state>
+    }
+    </div>
+
+  @if (cartItems.length > 0) {
+    <footer class="cart-footer">
+      <div class="total-section">
+        <span class="mat-title-large">Total</span>
+        <span class="mat-headline-medium total-amount">{{ total | currency:'COP':'symbol':'1.0-0' }}</span>
+      </div>
+      <button mat-flat-button class="whatsapp-button" (click)="sendQuote.emit()" aria-label="Enviar cotización por WhatsApp">
+        <span>Enviar por WhatsApp</span>
+      </button>
+    </footer>
+  }
+</div>
+

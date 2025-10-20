@@ -1,0 +1,16 @@
+<mat-card class="product-card" [matBadge]="product.tag?.join(', ')" [matBadgeHidden]="!product.tag || 
+product.tag.length === 0" matBadgeColor="primary" matBadgePosition="above after">
+    <div class="image-container">
+        <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
+    </div>
+    <mat-card-content>
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-price">{{ product.price | currency:'COP':'symbol':'1.0-0' }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button color="primary" (click)="addToCart.emit()" aria-label="Agregar al carrito">
+            <mat-icon>add_shopping_cart</mat-icon>
+            <span>Agregar</span>
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,19 @@
+.empty-state-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--color-on-surface-variant);
+      border-radius: 16px;
+      background-color: rgba(0,0,0,0.02);
+      margin-top: 24px;
+    }
+    .empty-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      color: var(--color-primary);
+    }

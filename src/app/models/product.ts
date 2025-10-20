@@ -4,10 +4,10 @@ export interface Product {
     price: number;
     imageUrl: string;
     category: string[];
-    tags?: string[];
+    tag?: string[];
 }
 
 export const defaultProps: Partial<Product> = {
     category: ['Cabello', 'Maquillaje' , 'Manicura/Pedicura'],
-    tags: ['Nuevo', 'Oferta', 'Más vendido', 'Exclusivo'],
+    tag: ['Nuevo', 'Oferta', 'Más vendido', 'Exclusivo'],
 };
